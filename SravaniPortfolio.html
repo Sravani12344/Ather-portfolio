@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sudanagunta Sravani | Portfolio</title>
+<meta name="description" content="Portfolio of Sudanagunta Sravani, B.Tech Computer Science student at SRM Institute of Science and Technology, Ramapuram.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%2362e6c0'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1b2a; --bg2:#13263a; --card:#162c43; --line:#27425c;
+  --text:#f2f7fa; --muted:#a9bccb; --mint:#62e6c0; --mint-d:#0d1b2a;
+  --amber:#f2c14e;
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Figtree','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--mint);color:var(--mint-d);padding:.6rem 1rem;z-index:100}
+.skip:focus{left:0}
+h1,h2,h3{font-family:var(--display);line-height:1.12;letter-spacing:-.02em}
+h2{font-size:clamp(2rem,4.2vw,3rem);font-weight:800;margin-bottom:1rem}
+h3{font-size:1.35rem;font-weight:700}
+p{max-width:68ch}
+.lede{color:var(--muted);font-size:1.15rem}
+section{padding:6rem 0}
+.alt{background:var(--bg2)}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(13,27,42,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.2rem;text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.logo i{width:12px;height:12px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px rgba(98,230,192,.18)}
+.links{display:flex;gap:1.6rem;list-style:none}
+.links a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.98rem;padding:.3rem 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.links a:hover,.links a.on{color:var(--text);border-color:var(--mint)}
+.menu{display:none;background:none;border:1px solid var(--line);color:var(--text);padding:.45rem .8rem;border-radius:10px;font:inherit;cursor:pointer}
+
+/* hero */
+.hero{padding:5rem 0 4rem;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:800;margin-bottom:1.2rem}
+.hero .role{color:var(--mint);font-weight:600;margin-bottom:1rem}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:.85rem 1.5rem;border-radius:999px;border:1.5px solid var(--line);transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px);border-color:var(--mint)}
+.btn.main{background:var(--mint);color:var(--mint-d);border-color:var(--mint)}
+.btn.main:hover{background:#86f0d2}
+.route{width:100%;height:auto}
+.route .road{fill:none;stroke:var(--line);stroke-width:14;stroke-linecap:round}
+.route .trail{fill:none;stroke:var(--mint);stroke-width:3;stroke-linecap:round;stroke-dasharray:6 10}
+.route .glow{fill:none;stroke:var(--mint);stroke-width:5;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 2.6s .3s ease-out forwards}
+.route .node{fill:var(--bg);stroke:var(--mint);stroke-width:3}
+.route text{fill:var(--text);font:600 15px var(--body)}
+.route .sub{fill:var(--muted);font-weight:400;font-size:13px}
+.route a:hover .node{fill:var(--mint)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.route-cap{color:var(--muted);font-size:.9rem;margin-top:.4rem}
+
+/* about */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.facts{list-style:none;display:grid;gap:1rem}
+.facts li{border-left:3px solid var(--mint);padding-left:1rem}
+.facts b{display:block;font-family:var(--display);font-size:1.15rem}
+.facts span{color:var(--muted)}
+.about p+p{margin-top:1rem}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2.5rem}
+.skill{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.5rem}
+.skill h3{font-size:1.1rem;margin-bottom:.9rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.chips li{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:.25rem .85rem;font-size:.95rem}
+.chips li small{color:var(--amber);margin-left:.3rem;font-size:.8rem}
+.note{color:var(--muted);margin-top:1.6rem;font-size:.95rem}
+
+/* projects */
+.proj{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:2rem;margin-top:2rem;display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;transition:border-color .25s,transform .25s}
+.proj:hover{border-color:var(--mint);transform:translateY(-3px)}
+.tag{display:inline-block;font-size:.85rem;font-weight:600;padding:.2rem .8rem;border-radius:999px;margin-bottom:.9rem}
+.tag.build{background:rgba(98,230,192,.14);color:var(--mint)}
+.tag.concept{background:rgba(242,193,78,.14);color:var(--amber)}
+.proj h3{font-size:1.6rem;margin-bottom:.2rem}
+.proj .sub{color:var(--muted);margin-bottom:1rem}
+.proj h4{font-family:var(--display);font-size:1rem;margin:1.2rem 0 .5rem}
+.proj ul.f{padding-left:1.2rem;color:var(--muted)}
+.proj ul.f li{margin:.25rem 0}
+.shot{border:2px dashed var(--line);border-radius:18px;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1.5rem;color:var(--muted);background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.02) 14px 28px)}
+.shot b{color:var(--text);font-family:var(--display);margin-bottom:.3rem}
+.shot code{font-size:.85rem;color:var(--mint)}
+
+.art{margin:0;align-self:start}
+.art svg{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:18px}
+.art figcaption{color:var(--muted);font-size:.85rem;margin-top:.6rem}
+
+/* design */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-top:2.5rem}
+.pillar{padding:1.6rem;border-top:3px solid var(--mint);background:var(--bg);border-radius:0 0 16px 16px}
+.pillar h3{margin-bottom:.6rem}
+.pillar p{color:var(--muted)}
+
+/* education */
+.edu{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:2rem}
+.edu h3{font-size:1.5rem}
+.edu p{color:var(--muted)}
+.cgpa{text-align:center;border:2px solid var(--mint);border-radius:20px;padding:1rem 1.8rem}
+.cgpa strong{display:block;font-family:var(--display);font-size:2.6rem;color:var(--mint);line-height:1}
+.cgpa span{color:var(--muted);font-size:.9rem}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem;margin-top:2.5rem}
+.contact-card{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.5rem;transition:border-color .2s,transform .2s;overflow-wrap:anywhere}
+.contact-card:hover{border-color:var(--mint);transform:translateY(-3px)}
+.contact-card span{display:block;color:var(--muted);font-size:.9rem;margin-bottom:.3rem}
+.contact-card b{font-weight:600;color:var(--mint)}
+
+footer{border-top:1px solid var(--line);padding:2.5rem 0;color:var(--muted);font-size:.95rem}
+.foot{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
+.foot ul{display:flex;flex-wrap:wrap;gap:1.2rem;list-style:none}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--mint)}
+
+@media(max-width:860px){
+  section{padding:4.5rem 0}
+  .hero-grid,.two,.proj,.edu{grid-template-columns:1fr}
+  .menu{display:block}
+  .links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem 1.5rem 1rem}
+  .links.open{display:flex}
+  .links a{display:block;padding:.8rem 0}
+  .cgpa{justify-self:start}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+  .route .glow{animation:none;stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="#home"><i></i>Sravani</a>
+    <button class="menu" id="menu" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="role">B.Tech Computer Science student · Applying for AI Generalist (Design) at Ather Energy</p>
+      <h1>Sudanagunta Sravani</h1>
+      <p class="lede">I’m a computer science student who likes turning everyday problems into clear, usable systems. This portfolio walks through three projects: two built around databases and one product concept for cleaner, smarter water.</p>
+      <div class="cta">
+        <a class="btn main" href="#projects">View my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div>
+      <svg class="route" viewBox="0 0 460 420" role="img" aria-label="A route connecting three projects: CivicPulse, Healthcare Appointment Scheduling, and AquaPulse">
+        <path class="road" d="M60 60 C 380 70, 400 200, 230 215 S 60 330, 400 365"/>
+        <path class="trail" d="M60 60 C 380 70, 400 200, 230 215 S 60 330, 400 365"/>
+        <path class="glow" d="M60 60 C 380 70, 400 200, 230 215 S 60 330, 400 365"/>
+        <a href="#civicpulse"><circle class="node" cx="60" cy="60" r="12"/><text x="82" y="52">CivicPulse</text><text class="sub" x="82" y="72">Public grievance system</text></a>
+        <a href="#healthcare"><circle class="node" cx="230" cy="215" r="12"/><text x="252" y="250">Appointment Scheduling</text><text class="sub" x="252" y="270">Healthcare database project</text></a>
+        <a href="#aquapulse"><circle class="node" cx="400" cy="365" r="12"/><text x="300" y="405" >AquaPulse (concept)</text></a>
+      </svg>
+      <p class="route-cap">Select a stop to jump to that project.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt about" id="about">
+  <div class="wrap two">
+    <div>
+      <h2>About me</h2>
+      <p class="lede">I’m in my fourth year of a B.Tech in Computer Science and Engineering at SRM Institute of Science and Technology, Ramapuram.</p>
+      <p>My coursework covers object-oriented programming, databases, operating systems, and computer networks, and I’m building my web development skills alongside it. I enjoy projects where a database, a simple interface, and a real everyday need come together.</p>
+      <p>I’m looking for a chance to learn on a team that designs technology around people. The AI Generalist (Design) role at Ather Energy fits that goal: I want to grow in how AI can make products easier to understand and use.</p>
+    </div>
+    <ul class="facts">
+      <li><b>Degree</b><span>B.Tech, Computer Science and Engineering</span></li>
+      <li><b>Interests</b><span>Database-driven apps, user-friendly interfaces, sustainable technology</span></li>
+      <li><b>Currently</b><span>Strengthening Java, Oracle SQL, and front-end skills through projects</span></li>
+      <li><b>Goal</b><span>Learn and contribute in a technology and design-focused team</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="lede">What I work with today. Levels are stated honestly so you know where I’m strong and where I’m still learning.</p>
+    <div class="skill-grid">
+      <div class="skill"><h3>Programming</h3><ul class="chips"><li>Java</li><li>Python <small>basic</small></li></ul></div>
+      <div class="skill"><h3>Web development</h3><ul class="chips"><li>HTML5</li><li>CSS3</li><li>JavaScript <small>basics</small></li></ul></div>
+      <div class="skill"><h3>Database</h3><ul class="chips"><li>Oracle SQL</li></ul></div>
+      <div class="skill"><h3>Tools</h3><ul class="chips"><li>Git</li><li>GitHub</li><li>Visual Studio Code</li></ul></div>
+      <div class="skill"><h3>CS fundamentals</h3><ul class="chips"><li>Object-Oriented Programming</li><li>DBMS</li><li>Operating Systems</li><li>Computer Networks</li><li>Data Structures &amp; Algorithms <small>basic</small></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lede">Each card says what the project is, what it uses, and what is still planned or only a concept.</p>
+
+    <article class="proj" id="civicpulse">
+      <div>
+        <span class="tag build">Academic project</span>
+        <h3>CivicPulse</h3>
+        <p class="sub">Intelligent Public Grievance Management System</p>
+        <p>A complaint management concept that helps citizens submit and track public complaints such as road damage, water leakage, drainage problems, and electricity issues.</p>
+        <h4>Core scope</h4>
+        <ul class="f"><li>Complaint submission and tracking</li><li>Complaint status monitoring</li><li>Database operations using Java and Oracle SQL</li></ul>
+        <h4>Planned / concept</h4>
+        <ul class="f"><li>SLA monitoring and escalation</li><li>Citizen feedback</li><li>Administrative status updates</li></ul>
+        <h4>Technologies</h4>
+        <ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Java</li><li>Oracle SQL</li></ul>
+      </div>
+      <figure class="art">
+        <svg viewBox="0 0 400 260" role="img" aria-label="Illustration of a city map with complaint pins and a three-stage status flow">
+          <rect width="400" height="260" rx="18" fill="#0f2236"/>
+          <g stroke="#27425c" stroke-width="2" fill="none"><path d="M0 90H400M0 170H400M110 0V200M250 0V200M330 40V200"/><path d="M20 60C120 40 180 120 380 80" stroke="#1d3a55" stroke-width="8"/></g>
+          <g><circle cx="80" cy="130" r="26" fill="#62e6c0" opacity=".12"/><circle cx="80" cy="130" r="9" fill="#62e6c0"/>
+          <circle cx="200" cy="70" r="26" fill="#f2c14e" opacity=".14"/><circle cx="200" cy="70" r="9" fill="#f2c14e"/>
+          <circle cx="300" cy="140" r="26" fill="#62e6c0" opacity=".12"/><circle cx="300" cy="140" r="9" fill="#62e6c0"/></g>
+          <g font-family="Figtree,Segoe UI,sans-serif" font-size="12" fill="#f2f7fa">
+            <text x="52" y="172">Road damage</text><text x="170" y="108">Water leakage</text><text x="268" y="178">Drainage</text></g>
+          <line x1="60" y1="226" x2="340" y2="226" stroke="#27425c" stroke-width="3"/>
+          <g fill="#0f2236" stroke="#62e6c0" stroke-width="3"><circle cx="60" cy="226" r="8"/><circle cx="200" cy="226" r="8"/><circle cx="340" cy="226" r="8"/></g>
+          <g font-family="Figtree,Segoe UI,sans-serif" font-size="11" fill="#a9bccb" text-anchor="middle"><text x="60" y="206">Submitted</text><text x="200" y="206">In review</text><text x="340" y="206">Resolved</text></g>
+        </svg>
+        <figcaption>Concept illustration, not a screenshot.</figcaption></figure>
+    </article>
+
+    <article class="proj" id="healthcare">
+      <div>
+        <span class="tag build">Academic project</span>
+        <h3>Healthcare Appointment Scheduling System</h3>
+        <p class="sub">Database-oriented project</p>
+        <p>A project for organizing doctor and patient appointment information in a structured database, with a simple HTML and CSS interface.</p>
+        <h4>Core scope</h4>
+        <ul class="f"><li>Doctor and patient details</li><li>Appointment scheduling</li><li>Database management using Oracle SQL</li><li>HTML and CSS interface</li></ul>
+        <h4>Concept</h4>
+        <ul class="f"><li>Appointment conflict detection</li></ul>
+        <h4>Technologies</h4>
+        <ul class="chips"><li>HTML</li><li>CSS</li><li>Oracle SQL</li></ul>
+      </div>
+      <figure class="art">
+        <svg viewBox="0 0 400 260" role="img" aria-label="Illustration of doctor and patient tables linked to an appointment calendar">
+          <rect width="400" height="260" rx="18" fill="#0f2236"/>
+          <g font-family="Figtree,Segoe UI,sans-serif" font-size="12" fill="#f2f7fa">
+            <rect x="24" y="28" width="104" height="70" rx="10" fill="#162c43" stroke="#27425c"/><text x="36" y="52" font-weight="600">Doctor</text>
+            <g stroke="#27425c" stroke-width="3" stroke-linecap="round"><path d="M36 68H104M36 82H84"/></g>
+            <rect x="24" y="162" width="104" height="70" rx="10" fill="#162c43" stroke="#27425c"/><text x="36" y="186" font-weight="600">Patient</text>
+            <g stroke="#27425c" stroke-width="3" stroke-linecap="round"><path d="M36 202H104M36 216H84"/></g>
+          </g>
+          <g stroke="#62e6c0" stroke-width="2.5" fill="none" stroke-linecap="round"><path d="M128 63C160 63 160 100 188 100"/><path d="M128 197C160 197 160 160 188 160"/></g>
+          <rect x="188" y="28" width="190" height="204" rx="12" fill="#162c43" stroke="#27425c"/>
+          <text x="204" y="54" font-family="Figtree,Segoe UI,sans-serif" font-size="13" font-weight="600" fill="#f2f7fa">Appointments</text>
+          <g fill="#0f2236">
+            <rect x="204" y="70" width="34" height="28" rx="6"/><rect x="246" y="70" width="34" height="28" rx="6" fill="#62e6c0"/><rect x="288" y="70" width="34" height="28" rx="6"/><rect x="330" y="70" width="34" height="28" rx="6"/>
+            <rect x="204" y="106" width="34" height="28" rx="6"/><rect x="246" y="106" width="34" height="28" rx="6"/><rect x="288" y="106" width="34" height="28" rx="6" fill="#62e6c0"/><rect x="330" y="106" width="34" height="28" rx="6"/>
+            <rect x="204" y="142" width="34" height="28" rx="6"/><rect x="246" y="142" width="34" height="28" rx="6"/><rect x="288" y="142" width="34" height="28" rx="6"/><rect x="330" y="142" width="34" height="28" rx="6" fill="#f2c14e"/>
+            <rect x="204" y="178" width="34" height="28" rx="6"/><rect x="246" y="178" width="34" height="28" rx="6"/><rect x="288" y="178" width="34" height="28" rx="6"/><rect x="330" y="178" width="34" height="28" rx="6"/>
+          </g>
+        </svg>
+        <figcaption>Concept illustration, not a screenshot.</figcaption></figure>
+    </article>
+
+    <article class="proj" id="aquapulse">
+      <div>
+        <span class="tag concept">Concept · proposed project</span>
+        <h3>AquaPulse</h3>
+        <p class="sub">Smart water purifier concept</p>
+        <p>A proposed idea to help people understand how their water purifier is performing. Nothing here is built yet: no sensors, hardware, or predictive AI have been implemented.</p>
+        <h4>Ideas explored</h4>
+        <ul class="f"><li>Predictive filter-life monitoring</li><li>Water recovery insights</li><li>Water quality awareness beyond TDS</li><li>Data-driven maintenance ideas</li><li>A user-friendly dashboard design</li></ul>
+      </div>
+      <figure class="art">
+        <svg viewBox="0 0 400 260" role="img" aria-label="Concept illustration of a water drop with a filter-life gauge and data points">
+          <rect width="400" height="260" rx="18" fill="#0f2236"/>
+          <path d="M120 40C120 40 70 106 70 148a50 50 0 0 0 100 0C170 106 120 40 120 40Z" fill="#62e6c0" opacity=".16" stroke="#62e6c0" stroke-width="3"/>
+          <path d="M96 150a24 24 0 0 0 24 24" stroke="#62e6c0" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <g stroke="#27425c" stroke-width="2" stroke-dasharray="4 6" fill="none"><path d="M170 120C210 120 220 90 250 90"/><path d="M170 150C210 150 220 170 250 170"/></g>
+          <g transform="translate(250 60)"><rect width="130" height="64" rx="12" fill="#162c43" stroke="#27425c"/>
+            <path d="M22 48a43 43 0 0 1 86 0" stroke="#27425c" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <path d="M22 48a43 43 0 0 1 58-40" stroke="#62e6c0" stroke-width="8" fill="none" stroke-linecap="round"/></g>
+          <g transform="translate(250 140)"><rect width="130" height="64" rx="12" fill="#162c43" stroke="#27425c"/>
+            <path d="M16 46L40 34L64 40L90 20L114 26" stroke="#f2c14e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g font-family="Figtree,Segoe UI,sans-serif" font-size="11" fill="#a9bccb"><text x="250" y="52">Filter life</text><text x="250" y="226">Water recovery trend</text></g>
+          <text x="30" y="240" font-family="Figtree,Segoe UI,sans-serif" font-size="12" fill="#f2c14e">Proposed concept</text>
+        </svg>
+        <figcaption>Concept illustration. Nothing shown here is built yet.</figcaption></figure>
+    </article>
+  </div>
+</section>
+
+<section id="design">
+  <div class="wrap">
+    <h2>Design and innovation</h2>
+    <p class="lede">I don’t have professional design experience yet. This is how I think about the work and what I’m learning.</p>
+    <div class="pillars">
+      <div class="pillar"><h3>Clear interfaces</h3><p>A good screen tells people what to do next. I try to keep forms, statuses, and labels simple enough that a first-time user understands them.</p></div>
+      <div class="pillar"><h3>Start with the problem</h3><p>CivicPulse began with a daily frustration: citizens don’t know what happened to their complaint. Tracking and status were the first things I wanted to get right.</p></div>
+      <div class="pillar"><h3>Technology that lasts</h3><p>AquaPulse comes from an interest in sustainability: knowing when a filter really needs changing could reduce waste and make maintenance less guesswork.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="education">
+  <div class="wrap">
+    <h2>Education</h2>
+    <div class="edu">
+      <div>
+        <h3>B.Tech in Computer Science and Engineering</h3>
+        <p>SRM Institute of Science and Technology, Ramapuram</p>
+        <p>2023 to 2027</p>
+      </div>
+      <div class="cgpa"><strong>9.22</strong><span>CGPA out of 10</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="lede">The fastest way to reach me is by email.</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:sravanisudanagunta817@gmail.com"><span>Personal email</span><b>sravanisudanagunta817@gmail.com</b></a>
+      <a class="contact-card" href="mailto:ss2679@srmist.edu.in"><span>College email</span><b>ss2679@srmist.edu.in</b></a>
+      <a class="contact-card" href="https://github.com/Sravani12344" target="_blank" rel="noopener noreferrer"><span>GitHub</span><b>github.com/Sravani12344</b></a>
+      <a class="contact-card" href="https://linkedin.com/in/sudanagunta-sravani" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><b>linkedin.com/in/sudanagunta-sravani</b></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© <span id="yr">2026</span> Sudanagunta Sravani</p>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  var menu=document.getElementById('menu'),links=document.getElementById('links');
+  menu.addEventListener('click',function(){
+    var open=links.classList.toggle('open');
+    menu.setAttribute('aria-expanded',open);
+  });
+  links.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){links.classList.remove('open');menu.setAttribute('aria-expanded','false');}
+  });
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var anchors=document.querySelectorAll('.links a');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){
+          anchors.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id);});
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){io.observe(s);});
+  }
+</script>
+</body>
+</html>
