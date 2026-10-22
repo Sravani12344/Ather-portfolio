@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sravani's technology, AI workflow and design portfolio.">
+  <title>Sravani | AI & Design Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #131b2e;
+      --text: #f4f6fc;
+      --muted: #aab4ca;
+      --accent: #78f0c5;
+      --line: #28344b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1100px, 90%); margin: auto; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo { font-size: 20px; font-weight: 800; }
+    .logo span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      padding: 95px 0 85px;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 45px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.12;
+      margin: 18px 0;
+      letter-spacing: -2px;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero p, .section-intro {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 19px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); opacity: .85; }
+    .primary { background: var(--accent); color: #0b1020; }
+    .secondary { color: var(--accent); }
+
+    .hero-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, #17233a, #101627);
+      border-radius: 20px;
+    }
+
+    .monogram {
+      width: 90px;
+      height: 90px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 25px;
+    }
+
+    .hero-card h2 { font-size: 23px; margin-bottom: 8px; }
+    .hero-card p { color: var(--muted); font-size: 14px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+
+    .tag {
+      border: 1px solid var(--line);
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    section { padding: 65px 0; scroll-margin-top: 20px; }
+
+    .section-title { font-size: 32px; margin: 10px 0 12px; }
+    .section-intro { margin-bottom: 30px; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 25px;
+    }
+
+    .card-number { color: var(--accent); font-size: 13px; font-weight: 800; }
+    .card h3 { font-size: 21px; margin: 8px 0 12px; }
+    .card p, .card li { color: var(--muted); font-size: 14px; }
+    .card ul { padding-left: 20px; margin: 14px 0; }
+    .card li { margin-bottom: 7px; }
+
+    .project-type {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .workflow-step {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 18px 12px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .workflow-step strong { display: block; color: var(--accent); }
+    .workflow-step span { color: var(--muted); font-size: 12px; }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 12px; }
+    .skill {
+      padding: 12px 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      font-size: 14px;
+    }
+
+    .note { color: var(--muted); font-size: 12px; margin-top: 15px; }
+
+    .contact-box {
+      background: linear-gradient(135deg, #142b32, #131b2e);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 32px;
+    }
+
+    footer {
+      padding: 25px 0;
+      margin-top: 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; padding: 60px 0; }
+      .grid { grid-template-columns: 1fr; }
+      .workflow { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 12px; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <nav>
+      <a class="logo" href="#home">SRAVANI<span>.</span></a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#ai">AI Concept</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <div>
+        <div class="eyebrow">Technology · Problem Solving · Design</div>
+        <h1>Building useful tools for <span>better workflows.</span></h1>
+        <p>
+          I'm Sravani, a Computer Science and Engineering student interested
+          in exploring AI tools, simplifying repetitive tasks, and creating
+          accessible, user-friendly technology.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my projects</a>
+          <a class="btn secondary" href="#contact">Contact me ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="monogram">SS</div>
+        <h2>Sravani Sudanagunta</h2>
+        <p>B.Tech Computer Science and Engineering · 2027</p>
+        <p>SRM Institute of Science and Technology, Ramapuram</p>
+        <div class="tags">
+          <span class="tag">Java</span>
+          <span class="tag">Oracle SQL</span>
+          <span class="tag">Web Development</span>
+          <span class="tag">AI Exploration</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="eyebrow">01 / About</div>
+        <h2 class="section-title">Curious about how things can work better.</h2>
+        <p class="section-intro">
+          My approach is to understand a problem, break it into manageable
+          steps, and explore a practical technology-based solution. I am
+          interested in applying this approach to internal tools, creative
+          workflows, and AI-assisted productivity.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>My approach</h3>
+            <ul>
+              <li>Understand the user's actual problem.</li>
+              <li>Identify repetitive or confusing steps.</li>
+              <li>Explore a simple and practical solution.</li>
+              <li>Test, improve, and document the workflow.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>What I want to explore</h3>
+            <ul>
+              <li>AI tools for everyday productivity.</li>
+              <li>Simple internal web applications.</li>
+              <li>Clear data visualization and interfaces.</li>
+              <li>Automation of repetitive tasks.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="eyebrow">02 / Projects</div>
+        <h2 class="section-title">Projects and practical problem-solving</h2>
+        <p class="section-intro">
+          These projects reflect my learning in application workflows,
+          databases, and organizing information.
+        </p>
+
+        <div class="grid">
+          <article class="card">
+            <span class="project-type">Project 01 · Web / Database</span>
+            <div class="card-number">01</div>
+            <h3>CivicPulse</h3>
+            <p>
+              A smart public grievance management concept for organizing
+              complaints such as water leakage, road damage, and drainage issues.
+            </p>
+            <ul>
+              <li>Complaint status tracking and database operations.</li>
+              <li>SLA monitoring and escalation concepts.</li>
+              <li>Citizen-facing information and admin workflows.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">HTML / CSS</span>
+              <span class="tag">Oracle SQL</span>
+            </div>
+            <p class="note">My contribution: Add your exact implemented features here.</p>
+            <p class="note">Project link: <a href="https://github.com/" target="_blank" rel="noopener">Add repository ↗</a></p>
+          </article>
+
+          <article class="card">
+            <span class="project-type">Project 02 · Scheduling</span>
+            <div class="card-number">02</div>
+            <h3>Healthcare Appointment Scheduling</h3>
+            <p>
+              An appointment scheduling system concept designed to organize
+              doctor, patient, and booking information.
+            </p>
+            <ul>
+              <li>Doctor and patient information management.</li>
+              <li>Appointment scheduling workflow.</li>
+              <li>Exploration of booking conflict prevention.</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Oracle SQL</span>
+            </div>
+            <p class="note">My contribution: Describe what you personally built.</p>
+            <p class="note">Project link: <a href="https://github.com/" target="_blank" rel="noopener">Add repository ↗</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ai">
+      <div class="container">
+        <div class="eyebrow">03 / AI Workflow Concept</div>
+        <h2 class="section-title">DesignFlow — a concept for smoother design work</h2>
+        <p class="section-intro">
+          Proposed concept, not a completed application: explore how a simple
+          AI-assisted tool could help designers organize feedback and reduce
+          repetitive documentation.
+        </p>
+
+        <div class="card">
+          <h3>The problem</h3>
+          <p>
+            Designers may receive feedback across multiple notes and messages.
+            Organizing it manually can take time and make it harder to identify
+            recurring issues.
+          </p>
+          <h3 style="margin-top:22px">Proposed workflow</h3>
+          <div class="workflow">
+            <div class="workflow-step">
+              <strong>01</strong>
+              <span>Collect feedback</span>
+            </div>
+            <div class="workflow-step">
+              <strong>02</strong>
+              <span>Organize themes</span>
+            </div>
+            <div class="workflow-step">
+              <strong>03</strong>
+              <span>Review AI suggestions</span>
+            </div>
+            <div class="workflow-step">
+              <strong>04</strong>
+              <span>Export a summary</span>
+            </div>
+          </div>
+          <h3 style="margin-top:25px">How I would evaluate it</h3>
+          <ul>
+            <li>Compare time spent organizing feedback before and after.</li>
+            <li>Check whether categories are accurate and useful.</li>
+            <li>Ask designers whether the workflow is easy to use.</li>
+          </ul>
+          <p class="note">
+            This is a proposed idea. Do not present it as an implemented
+            AI integration unless you build and test it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="eyebrow">04 / Skills</div>
+        <h2 class="section-title">My technical foundation</h2>
+        <p class="section-intro">
+          Skills and technologies I have studied or used. Update this list
+          to match your actual proficiency.
+        </p>
+        <div class="skills">
+          <span class="skill">Java</span>
+          <span class="skill">Basic Python</span>
+          <span class="skill">HTML5</span>
+          <span class="skill">CSS3</span>
+          <span class="skill">JavaScript Basics</span>
+          <span class="skill">Oracle SQL</span>
+          <span class="skill">Git & GitHub</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Workflow Analysis</span>
+          <span class="skill">Team Collaboration</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="eyebrow">05 / Contact</div>
+          <h2 class="section-title">Let's connect.</h2>
+          <p class="section-intro">
+            I am interested in learning, experimenting with technology,
+            and exploring practical solutions to real-world problems.
+          </p>
+          <div class="actions">
+            <!-- Replace the URLs below with your actual profile links. -->
+            <a class="btn primary"
+               href="https://github.com/Sravani12344"
+               target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn secondary"
+               href="https://linkedin.com/in/sudanagunta-sravani"
+               target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Sravani Sudanagunta · Portfolio
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
